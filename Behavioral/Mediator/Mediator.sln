@@ -1,0 +1,67 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AirTrafficControl", "AirTraffic\Control\After\AirTrafficControl.csproj", "{22222222-2222-2222-2222-222222222221}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AirTrafficTests", "AirTraffic\Control\After\Tests\AirTrafficTests.csproj", "{22222222-2222-2222-2222-222222222222}"
+	ProjectSection(ProjectDependencies) = postProject
+		{22222222-2222-2222-2222-222222222221} = {22222222-2222-2222-2222-222222222221}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatRoom", "Communication\ChatRoom\After\ChatRoom.csproj", "{22222222-2222-2222-2222-222222222223}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatRoomTests", "Communication\ChatRoom\After\Tests\ChatRoomTests.csproj", "{22222222-2222-2222-2222-222222222224}"
+	ProjectSection(ProjectDependencies) = postProject
+		{22222222-2222-2222-2222-222222222223} = {22222222-2222-2222-2222-222222222223}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelReservation", "Hospitality\HotelReservation\After\HotelReservation.csproj", "{22222222-2222-2222-2222-222222222225}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelReservationTests", "Hospitality\HotelReservation\After\Tests\HotelReservationTests.csproj", "{22222222-2222-2222-2222-222222222226}"
+	ProjectSection(ProjectDependencies) = postProject
+		{22222222-2222-2222-2222-222222222225} = {22222222-2222-2222-2222-222222222225}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartHome", "IoT\SmartHome\After\SmartHome.csproj", "{22222222-2222-2222-2222-222222222227}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartHomeTests", "IoT\SmartHome\After\Tests\SmartHomeTests.csproj", "{22222222-2222-2222-2222-222222222228}"
+	ProjectSection(ProjectDependencies) = postProject
+		{22222222-2222-2222-2222-222222222227} = {22222222-2222-2222-2222-222222222227}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightBooking", "Travel\FlightBooking\After\FlightBooking.csproj", "{22222222-2222-2222-2222-222222222229}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightBookingTests", "Travel\FlightBooking\After\Tests\FlightBookingTests.csproj", "{22222222-2222-2222-2222-22222222222A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{22222222-2222-2222-2222-222222222229} = {22222222-2222-2222-2222-222222222229}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22222222-2222-2222-2222-222222222221}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22222222-2222-2222-2222-222222222221}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22222222-2222-2222-2222-222222222222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22222222-2222-2222-2222-222222222222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22222222-2222-2222-2222-222222222223}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22222222-2222-2222-2222-222222222223}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22222222-2222-2222-2222-222222222224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22222222-2222-2222-2222-222222222224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22222222-2222-2222-2222-222222222225}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22222222-2222-2222-2222-222222222225}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22222222-2222-2222-2222-222222222226}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22222222-2222-2222-2222-222222222226}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22222222-2222-2222-2222-222222222227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22222222-2222-2222-2222-222222222227}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22222222-2222-2222-2222-222222222228}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22222222-2222-2222-2222-222222222228}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22222222-2222-2222-2222-222222222229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22222222-2222-2222-2222-222222222229}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22222222-2222-2222-2222-22222222222A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22222222-2222-2222-2222-22222222222A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+EndGlobal
