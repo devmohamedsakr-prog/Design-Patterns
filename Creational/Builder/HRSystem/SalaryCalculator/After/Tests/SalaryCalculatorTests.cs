@@ -1,5 +1,10 @@
 using NUnit.Framework;
-using SalaryCalculator.After;
+using System;
+using System.Linq;
+using SalaryCalculator.After.Models;
+using SalaryCalculator.After.Configuration;
+using SalaryCalculator.After.Builder;
+using SalaryCalculator.After.Templates;
 
 namespace SalaryCalculator.After.Tests
 {
