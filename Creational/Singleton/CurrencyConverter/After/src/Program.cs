@@ -20,7 +20,7 @@ namespace CurrencyConverterAfter
 {
     public class Program
     {
-        public static void Main()
+        public static void MainApp()
         {
             Console.WriteLine("╔════════════════════════════════════════════════════════════════╗");
             Console.WriteLine("║  ✅ AFTER: Currency Converter WITH Singleton Pattern + SRP     ║");

@@ -18,6 +18,19 @@ namespace CurrencyConverterAfter.Tests
     [TestFixture]
     public class IntegrationTests
     {
+        [SetUp]
+        public void SetUp()
+        {
+            // Reset rates to defaults before each test
+            ExchangeRateManager.Instance.UpdateRate("USD", 1.0m);
+            ExchangeRateManager.Instance.UpdateRate("EUR", 0.85m);
+            ExchangeRateManager.Instance.UpdateRate("GBP", 0.73m);
+            ExchangeRateManager.Instance.UpdateRate("JPY", 110.50m);
+            ExchangeRateManager.Instance.UpdateRate("AUD", 1.35m);
+            ExchangeRateManager.Instance.UpdateRate("CAD", 1.25m);
+            ExchangeRateManager.Instance.UpdateRate("CHF", 0.92m);
+            ExchangeRateManager.Instance.UpdateRate("INR", 74.50m);
+        }
         // ════════════════════════════════════════════════════════════════════
         // TEST 1: Complete Conversion Workflow
         // ════════════════════════════════════════════════════════════════════

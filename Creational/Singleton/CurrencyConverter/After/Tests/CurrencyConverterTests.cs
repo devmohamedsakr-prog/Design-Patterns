@@ -23,6 +23,10 @@ namespace CurrencyConverterAfter.Tests
         public void Setup()
         {
             converter = new CurrencyConverter();
+            // Reset rates to defaults before each test
+            ExchangeRateManager.Instance.UpdateRate("USD", 1.0m);
+            ExchangeRateManager.Instance.UpdateRate("EUR", 0.85m);
+            ExchangeRateManager.Instance.UpdateRate("GBP", 0.73m);
         }
 
         // ════════════════════════════════════════════════════════════════════
