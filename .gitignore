@@ -1,0 +1,43 @@
+# IDE and Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.sublime-workspace
+*.sublime-project
+
+# OS
+.DS_Store
+Thumbs.db
+.env.local
+.env.*.local
+
+# Build outputs
+bin/
+obj/
+dist/
+build/
+*.o
+*.class
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+
+# Java
+*.jar
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*~
