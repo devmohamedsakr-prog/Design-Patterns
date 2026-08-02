@@ -1,4 +1,5 @@
 using System;
+using CustomerDiscountFactory.Tiers;
 
 namespace CustomerDiscountFactory
 {
