@@ -162,10 +162,10 @@ namespace CurrencyConverterAfter.Tests
         {
             // Arrange
             var mock = new Mock<ICurrencyConverter>();
-            mock.Setup(x => x.Convert("USD", "INVALID", 100))
+            mock.Setup(x => x.Convert(100m, "USD", "INVALID"))
                 .Throws<ArgumentException>();
 
-            var decorator = new LoggingDecorator(mock.Object);
+            var decorator = new LoggingCurrencyConverter(mock.Object);
 
             // Act & Assert
             Assert.Throws<ArgumentException>(() => 
@@ -217,7 +217,7 @@ namespace CurrencyConverterAfter.Tests
             var decorator = new LoggingCurrencyConverter(converter);
 
             // Assert
-            Assert.That(decorator, Is.InstanceOf<ICurrencyConverter>,
+            Assert.That(decorator, Is.InstanceOf(typeof(ICurrencyConverter)),
                 "Decorator should implement ICurrencyConverter");
             
             // ✅ VERIFIED: Decorator follows interface contract
