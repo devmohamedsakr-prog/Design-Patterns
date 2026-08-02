@@ -470,6 +470,69 @@ namespace CustomerDiscountFactory.Tests
             }
         }
 
+        #region Null Object Pattern Tests
+
+        [TestFixture]
+        public class NullObjectPatternTests
+        {
+            [Test]
+            public void CreateByType_NullTierName_ReturnsNullTier()
+            {
+                var tier = CustomerDiscountLevelFactory.CreateByTierName(null);
+                Assert.That(tier, Is.InstanceOf<NullTierLevel>());
+                Assert.That(tier.TierRank, Is.EqualTo(-1));
+            }
+
+            [Test]
+            public void CreateByType_EmptyTierName_ReturnsNullTier()
+            {
+                var tier = CustomerDiscountLevelFactory.CreateByTierName("");
+                Assert.That(tier, Is.InstanceOf<NullTierLevel>());
+            }
+
+            [Test]
+            public void CreateByType_InvalidTierName_ReturnsNullTier()
+            {
+                var tier = CustomerDiscountLevelFactory.CreateByTierName("platinum");
+                Assert.That(tier, Is.InstanceOf<NullTierLevel>());
+                Assert.That(tier.GetDiscountPercentage(100m), Is.EqualTo(0m));
+            }
+
+            [Test]
+            public void NullTier_NoDiscount_ReturnsZero()
+            {
+                var tier = new NullTierLevel();
+                Assert.That(tier.GetDiscountPercentage(1000m), Is.EqualTo(0m));
+            }
+
+            [Test]
+            public void NullTier_NoShipping_ReturnsZero()
+            {
+                var tier = new NullTierLevel();
+                Assert.That(tier.GetShippingCost(100m), Is.EqualTo(0m));
+            }
+
+            [Test]
+            public void NullTier_NoPoints_ReturnsZero()
+            {
+                var tier = new NullTierLevel();
+                Assert.That(tier.GetLoyaltyPoints(500m), Is.EqualTo(0));
+            }
+
+            [Test]
+            public void NullTier_NotEligibleForPromotion_ReturnsFalse()
+            {
+                var tier = new NullTierLevel();
+                Assert.That(tier.IsEligibleForPromotion(), Is.False);
+            }
+
+            [Test]
+            public void NullTierBenefits_Description_IsInformative()
+            {
+                var tier = new NullTierLevel();
+                var benefits = tier.GetBenefitsDescription();
+                Assert.That(benefits, Is.Not.Empty);
+            }
+        }
+
         #endregion
-    }
-}

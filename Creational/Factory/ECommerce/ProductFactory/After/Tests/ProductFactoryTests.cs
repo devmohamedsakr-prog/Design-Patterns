@@ -543,6 +543,84 @@ namespace ProductFactory.Tests
             }
         }
 
+        #region Null Object Pattern Tests
+
+        [TestFixture]
+        public class NullObjectPatternTests
+        {
+            [Test]
+            public void CreateByType_NullProductType_ReturnsNullProduct()
+            {
+                var props = new Dictionary<string, object>();
+                var product = ProductFactoryClass.CreateByType((string)null, props);
+                Assert.That(product, Is.InstanceOf<NullProduct>());
+            }
+
+            [Test]
+            public void CreateByType_EmptyProductType_ReturnsNullProduct()
+            {
+                var props = new Dictionary<string, object>();
+                var product = ProductFactoryClass.CreateByType("", props);
+                Assert.That(product, Is.InstanceOf<NullProduct>());
+            }
+
+            [Test]
+            public void CreateByType_InvalidProductType_ReturnsNullProduct()
+            {
+                var props = new Dictionary<string, object>();
+                var product = ProductFactoryClass.CreateByType("unknown", props);
+                Assert.That(product, Is.InstanceOf<NullProduct>());
+            }
+
+            [Test]
+            public void CreateByType_NullProperties_SafelyHandles()
+            {
+                var product = ProductFactoryClass.CreateByType("physical", null);
+                Assert.That(product, Is.Not.Null);
+            }
+
+            [Test]
+            public void NullProduct_SKU_ReturnsSafeDefault()
+            {
+                var product = new NullProduct();
+                Assert.That(product.SKU, Is.EqualTo("NULL-PRODUCT"));
+            }
+
+            [Test]
+            public void NullProduct_Shipping_ReturnsFree()
+            {
+                var product = new NullProduct();
+                Assert.That(product.CalculateShippingCost(), Is.EqualTo(0m));
+            }
+
+            [Test]
+            public void NullProduct_Tax_ReturnsZero()
+            {
+                var product = new NullProduct();
+                Assert.That(product.CalculateTax("CA"), Is.EqualTo(0m));
+            }
+
+            [Test]
+            public void NullProduct_InStock_ReturnsFalse()
+            {
+                var product = new NullProduct();
+                Assert.That(product.IsInStock(), Is.False);
+            }
+
+            [Test]
+            public void NullProduct_Fulfillment_IsNoFulfillment()
+            {
+                var product = new NullProduct();
+                Assert.That(product.GetFulfillmentMethod(), Does.Contain("No"));
+            }
+
+            [Test]
+            public void NullProduct_Description_IsDescriptive()
+            {
+                var product = new NullProduct();
+                var description = product.GetProductTypeDescription();
+                Assert.That(description, Does.Contain("Null"));
+            }
+        }
+
         #endregion
-    }
-}

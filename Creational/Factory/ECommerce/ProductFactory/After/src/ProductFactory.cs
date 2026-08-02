@@ -12,15 +12,16 @@ namespace ProductFactory
         /// <summary>
         /// Create a product by type name
         /// ✅ Centralized creation logic
-        /// ✅ Clients don't know concrete types
+        /// ✅ Returns NullProduct instead of throwing
+        /// ✅ Safe, predictable behavior
         /// </summary>
         public static IProduct CreateByType(string productType, Dictionary<string, object> properties)
         {
             if (string.IsNullOrEmpty(productType))
-                throw new ArgumentNullException(nameof(productType));
+                return new NullProduct(properties); // ✅ Null Object Pattern
 
             if (properties == null)
-                throw new ArgumentNullException(nameof(properties));
+                properties = new Dictionary<string, object>(); // ✅ Default to empty
 
             return productType.ToLower() switch
             {
@@ -29,7 +30,7 @@ namespace ProductFactory
                 "service" => CreateServiceProduct(properties),
                 "subscription" => CreateSubscriptionProduct(properties),
                 "bundle" => CreateBundleProduct(properties),
-                _ => throw new ArgumentException($"Unknown product type: {productType}")
+                _ => new NullProduct(properties) // ✅ Null Object instead of exception
             };
         }
 

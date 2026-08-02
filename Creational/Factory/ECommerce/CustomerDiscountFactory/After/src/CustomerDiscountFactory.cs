@@ -13,10 +13,15 @@ namespace CustomerDiscountFactory
         /// ✅ Centralized creation logic
         /// ✅ Clients don't know concrete types
         /// </summary>
+        /// <summary>
+        /// Create tier by name - returns NullTier if invalid
+        /// ✅ No exceptions thrown
+        /// ✅ Safe default behavior
+        /// </summary>
         public static ICustomerDiscountLevel CreateByTierName(string tierName)
         {
             if (string.IsNullOrEmpty(tierName))
-                throw new ArgumentNullException(nameof(tierName));
+                return new NullTierLevel(); // ✅ Null Object Pattern
 
             return tierName.ToLower() switch
             {
@@ -24,7 +29,7 @@ namespace CustomerDiscountFactory
                 "silver" => new SilverTierLevel(),
                 "gold" => new GoldTierLevel(),
                 "regular" => new RegularCustomerLevel(),
-                _ => throw new ArgumentException($"Unknown tier: {tierName}")
+                _ => new NullTierLevel() // ✅ Null Object instead of exception
             };
         }
 
